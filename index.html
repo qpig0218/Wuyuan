@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>吳園微光特展｜小螺絲 大力量 — 電影式官網</title>
+<meta name="description" content="吳園微光特展：以電影宣傳頁形式，透過「小螺絲 大力量」的 11 則書籤故事，串起主題牆、白衣身影、光影故事、微光力量等展區。">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<style>
+  :root{
+    --blue:#0e7aa8; --yellow:#e0c23a; --ink:#0e1a22; --bg:#f6f7fb;
+    --card:#ffffff; --muted:#667280; --accent:#145c74;
+    --paper:#f2ebe3; --rose:#c53f4f; --violet:#5e63b6; --teal:#1f9d8f;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Noto Sans TC,Roboto,Helvetica,Arial,"PingFang TC","Microsoft JhengHei",sans-serif;color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased}
+  a{color:var(--blue);text-decoration:none} a:hover{text-decoration:underline}
+
+  /* HERO */
+  header.hero{
+    position:relative;min-height:84vh;display:grid;place-items:center;color:#fff;text-align:left;
+    background:linear-gradient(180deg,rgba(6,16,24,.72),rgba(6,16,24,.84)),url("assets/主視覺 2.PNG") center/cover no-repeat;
+  }
+  .hero .wrap{width:100%;max-width:1200px;margin:0 auto;padding:0 20px;display:grid;grid-template-columns:1.15fr .95fr;gap:28px;align-items:center}
+  .brand{display:flex;gap:12px;align-items:center;margin-bottom:10px}
+  .brand .logo{width:46px;height:46px;border-radius:10px;background:#fff;display:grid;place-items:center;color:var(--ink);font-weight:800}
+  .kicker{letter-spacing:.12em;text-transform:uppercase;font-weight:700;opacity:.9;font-size:14px}
+  h1{font-size:clamp(30px,4.4vw,60px);line-height:1.04;margin:6px 0 12px}
+  .badges{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}
+  .badge{background:rgba(255,255,255,.12);padding:8px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.26);font-size:13px}
+  .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:16px}
+  .btn{display:inline-flex;align-items:center;gap:8px;background:var(--yellow);color:#1a1a1a;font-weight:800;border-radius:12px;padding:12px 16px;border:none;cursor:pointer;font-size:16px;box-shadow:0 6px 16px rgba(0,0,0,.18)}
+  .btn.secondary{background:#fff;color:var(--ink)}
+  .meta{margin-top:12px;color:#e7f0f6;font-size:14px}
+
+  /* INFO STRIP（修正被裁掉） */
+  .container{max-width:1200px;margin:0 auto;padding:0 20px}
+  .infostrip{position:relative;z-index:10;background:#fff;box-shadow:0 6px 22px rgba(0,0,0,.06);margin-top:-46px;border-radius:16px;padding:22px}
+  .infogrid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  .icard{background:var(--card);border:1px solid #eef1f4;border-radius:14px;padding:18px;display:flex;gap:12px;align-items:flex-start;overflow:visible}
+  .icard svg{width:28px;height:28px;flex:0 0 auto}
+  .icard h4{margin:0 0 6px;font-size:16px}
+  .icard p{margin:0;color:var(--muted);font-size:14px}
+
+  /* BASE SECTIONS */
+  section{padding:60px 0} section h2{font-size:32px;margin:0 0 12px}
+  .lead{color:var(--muted);max-width:860px}
+  .poster{width:100%;border-radius:16px;box-shadow:0 10px 26px rgba(0,0,0,.34);border:4px solid rgba(255,255,255,.25)}
+
+  /* BOOKMARKS：微光同心圓 */
+  .bookmark-wrap{margin-top:12px}
+  .toolbar{display:flex;gap:10px;align-items:center;margin:8px 0 16px}
+  .toolbar input[type="search"]{flex:1 1 auto;border:1px solid #e2e8ef;border-radius:12px;padding:10px 12px;font-size:14px;background:#fff}
+  .bookmark-constellation{
+    position:relative;min-height:720px;border:1px solid #eef1f4;border-radius:18px;padding:30px;overflow:visible;
+    background:
+      radial-gradient(circle at center, rgba(224,194,58,.30) 0%, rgba(224,194,58,.20) 12%, rgba(14,122,168,.10) 38%, rgba(14,122,168,0) 60%),
+      radial-gradient(circle at center, rgba(255,255,255,.9) 0%, rgba(255,255,255,0) 60%), #fff;
+  }
+  .bookmark{position:absolute;width:240px;background:var(--paper);border:1px solid #e7dfd3;border-radius:12px;padding:22px 16px 20px;box-shadow:0 8px 18px rgba(0,0,0,.08);cursor:pointer;transition:transform .18s ease, box-shadow .18s ease}
+  .bookmark:hover{transform:translateY(-3px);box-shadow:0 12px 26px rgba(0,0,0,.12)}
+  .bookmark::before{content:"";position:absolute;top:-12px;left:50%;transform:translateX(-50%);width:78px;height:18px;background:var(--yellow);border-radius:0 0 9px 9px;box-shadow:0 3px 8px rgba(0,0,0,.10)}
+  .bookmark::after{content:"";position:absolute;bottom:-12px;left:50%;transform:translateX(-50%);border:12px solid transparent;border-top-color:var(--paper);filter:drop-shadow(0 4px 3px rgba(0,0,0,.08))}
+  .bookmark .ribbon{position:absolute;top:10px;right:10px;height:22px;padding:0 10px;border-radius:6px;background:var(--rose);display:grid;place-items:center;color:#fff;font-weight:800;font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+  .bookmark.alt1 .ribbon{background:var(--violet)} .bookmark.alt2 .ribbon{background:var(--teal)}
+  .bookmark h3{margin:10px 0 6px;font-size:18px;line-height:1.25}
+  .bookmark small{display:inline-block;color:#7a8694;margin-bottom:6px}
+  .bookmark p{margin:0;color:#36414d}
+  .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+  .pill{display:inline-block;background:var(--blue);color:#fff;padding:4px 10px;border-radius:999px;font-size:12px}
+
+  /* Cards, Accordion, Footer */
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}
+  .card{background:#fff;border:1px solid #eef1f4;border-radius:14px;padding:18px}
+  .card h3{margin:0 0 10px}
+  .accordion{border:1px solid #e8edf1;border-radius:12px;overflow:hidden}
+  .acc{border-top:1px solid #e8edf1;background:#fff}
+  .acc summary{list-style:none;cursor:pointer;padding:16px 18px;font-weight:700}
+  .acc summary::-webkit-details-marker{display:none}
+  .acc .content{padding:0 18px 16px;color:var(--muted)}
+  footer{background:#0c1d26;color:#cfe5ef;padding:36px 0}
+  footer a{color:#fff;text-decoration:underline}
+  .grid-2{display:grid;grid-template-columns:1.1fr 1fr;gap:20px}
+
+  /* Modal */
+  #lightbox{position:fixed;inset:0;background:rgba(0,0,0,.85);display:none;align-items:center;justify-content:center;padding:24px}
+  #lightbox img{max-width:96%;max-height:92%;border-radius:10px;border:2px solid #fff}
+  #storyModal{position:fixed;inset:0;display:none;place-items:center;background:rgba(8,16,24,.82);padding:24px}
+  .modal-card{max-width:820px;width:100%;background:#fff;border-radius:16px;border:1px solid #dbe2ea;box-shadow:0 10px 30px rgba(0,0,0,.28)}
+  .modal-head{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;border-bottom:1px solid #eef2f6}
+  .modal-body{padding:18px}
+  .modal-body h3{margin:0 0 6px}
+  .modal-body p{color:#2a343d;line-height:1.75}
+  .modal-foot{display:flex;justify-content:space-between;align-items:center;padding:12px 18px;border-top:1px solid #eef2f6}
+  .ghost{background:transparent;border:1px solid #d6dde6;border-radius:10px;padding:8px 12px;cursor:pointer}
+  .close{background:var(--ink);color:#fff;border:none;border-radius:10px;padding:8px 12px;cursor:pointer}
+
+  /* Responsive */
+  @media (max-width:1080px){
+    .hero .wrap{grid-template-columns:1fr}
+    .infogrid{grid-template-columns:repeat(2,1fr)}
+    .cards{grid-template-columns:1fr}
+    .grid-2{grid-template-columns:1fr}
+    .bookmark-constellation{
+      display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;padding:18px 18px 26px;
+      min-height:auto;background:radial-gradient(circle at center, rgba(224,194,58,.25) 0%, rgba(224,194,58,.08) 35%, transparent 60%),#fff
+    }
+    .bookmark{position:relative;width:auto;transform:none!important;box-shadow:0 6px 14px rgba(0,0,0,.06)}
+    .bookmark::after{display:none}
+  }
+</style>
+<meta property="og:title" content="吳園微光特展｜小螺絲 大力量">
+<meta property="og:description" content="像電影宣傳頁的展覽網站：以 11 則書籤故事看見『小螺絲 大力量』。">
+<meta property="og:image" content="assets/主視覺 2.PNG">
+<meta name="theme-color" content="#0e7aa8">
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <div class="brand">
+        <div class="logo">奇美</div>
+        <div class="kicker">WUYUAN EXHIBITION — OFFICIAL</div>
+      </div>
+      <h1>吳園微光特展｜<span style="color:var(--yellow)">小螺絲 大力量</span></h1>
+      <div class="badges">
+        <span class="badge">2025/11/01（六）– 11/16（日） 10:00–17:00</span>
+        <span class="badge">臺南｜吳園公會堂 地下展覽室</span>
+        <span class="badge">免費入場</span>
+      </div>
+      <p class="meta">單元：主題牆、白衣身影、光影故事、微光力量（展場動線依展場文件規劃）。</p>
+      <div class="cta">
+        <a class="btn" href="#stories">看人物書籤</a>
+        <a class="btn secondary" href="#about">展覽概念</a>
+      </div>
+      <p class="meta" id="countdown">距離開展：計算中…</p>
+    </div>
+    <div aria-hidden="true">
+      <img class="poster" src="assets/主視覺 2.PNG" alt="吳園微光特展主視覺海報">
+    </div>
+  </div>
+</header>
+
+<div class="container infostrip" role="region" aria-label="關鍵資訊">
+  <div class="infogrid">
+    <div class="icard">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M8 7h8M8 11h8M8 15h6"/><rect x="3" y="4" width="18" height="16" rx="2" ry="2" stroke-width="2"/></svg>
+      <div>
+        <h4>小人物 大力量</h4>
+        <p>記錄看不見的日常工：制度、教育、行政、資訊與後勤，把醫療的可靠與溫度撐起來。</p>
+      </div>
+    </div>
+    <div class="icard">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 5v14M5 12h14" stroke-width="2"/></svg>
+      <div>
+        <h4>書籤式人物故事</h4>
+        <p>11 位同仁，以書籤卡快速閱讀；點開即是長文敘事，像翻場刊。</p>
+      </div>
+    </div>
+    <div class="icard">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="8" r="4"/><path d="M6 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/></svg>
+      <div>
+        <h4>展場動線</h4>
+        <p>主題牆→白衣身影→光影故事→微光力量，像電影敘事節奏推進。</p>
+      </div>
+    </div>
+    <div class="icard">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 12h18M12 3v18"/><circle cx="12" cy="12" r="9"/></svg>
+      <div>
+        <h4>首展資訊</h4>
+        <p>展期與開放時段如上；最新公告以主辦單位公佈為準。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="about">
+  <div class="container">
+    <h2>展覽概念</h2>
+    <p class="lead">「每一個夢想，都是一盞微光。」當人文與醫療交織，微光會互相照亮；這場展覽把在地醫療、文化與教育連成一個故事，邀請你一起看見那些平日被忽略但不可或缺的手。</p>
+    <div class="cards">
+      <div class="card"><h3>主題牆</h3><p>以大片視覺與關鍵句勾勒展覽世界觀，帶入「小螺絲 大力量」的主張。</p></div>
+      <div class="card"><h3>白衣身影</h3><p>專業的數據、制度與臨床場景，以圖文版面呈現醫療現場的節奏。</p></div>
+      <div class="card"><h3>光影故事</h3><p>以照片牆與作品描繪醫療與人文交會的瞬間，強化時間的重量感。</p></div>
+      <div class="card"><h3>微光力量</h3><p>把小螺絲般的日常彙成集體動能：尊重專業、誠信為本、團隊互信、持續學習。</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="stories">
+  <div class="container">
+    <h2>小螺絲 大力量</h2>
+    <p class="lead">11 則書籤卡一次展開；桌機以「微光同心圓」圍繞中央光暈、手機改為整齊瀑布式網格，皆可點開閱讀長文。</p>
+    <div class="bookmark-wrap">
+      <div class="toolbar">
+        <input type="search" id="search" placeholder="以關鍵字篩選（例：護理、制度、心導管…）" aria-label="搜尋人物書籤">
+        <button class="ghost" id="resetBtn" type="button">清除</button>
+      </div>
+      <div class="bookmark-constellation" id="bookmarkConstellation" role="list"></div>
+    </div>
+  </div>
+</section>
+
+<section id="highlights" style="background:#fff">
+  <div class="container">
+    <h2>特展亮點</h2>
+    <div class="cards">
+      <div class="card"><h3>🎬 電影式開場</h3><p>海報視覺＋金黃片名排印，搭配倒數錶頭，帶出首映氛圍。</p></div>
+      <div class="card"><h3>🔖 書籤互動</h3><p>無捲動拉桿的星座式排版；手機改為網格，點開即讀。</p></div>
+      <div class="card"><h3>🗂️ 區塊敘事</h3><p>主題牆→白衣身影→光影故事→微光力量，展場與網站訊息一一對接。</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="container">
+    <h2>常見問題（FAQ）</h2>
+    <div class="accordion">
+      <details class="acc" open>
+        <summary>如何參觀與導覽？</summary>
+        <div class="content"><p>現場自由參觀；若需導覽或團體場，請於下方「聯絡我們」來信預約。</p></div>
+      </details>
+      <details class="acc">
+        <summary>是否需要門票？</summary>
+        <div class="content"><p>免費入場。若人流管制，將依現場工作人員引導為準。</p></div>
+      </details>
+      <details class="acc">
+        <summary>場地無障礙與交通？</summary>
+        <div class="content"><p>吳園公會堂設有無障礙動線；交通資訊依主辦單位公告。</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section id="contact" style="background:#fff">
+  <div class="container grid-2">
+    <div>
+      <h2>聯絡與合作</h2>
+      <p class="lead">合作洽談、學校或單位導覽、圖文授權，歡迎來信。</p>
+      <div class="badges">
+        <span class="badge">展覽企劃</span>
+        <span class="badge">教育推廣</span>
+        <span class="badge">影像授權</span>
+      </div>
+    </div>
+    <div class="card">
+      <h3>聯絡我們</h3>
+      <p>信箱：<a href="mailto:@mail.chimei.org.tw">aids@mail.chimei.org.tw</a></p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="grid-2">
+      <div>
+        <h3>奇美月｜吳園微光特展</h3>
+        <p>把看不見的日常，聚成可被看見的光。</p>
+        <p>&copy; 2025 Chi Mei Medical Center. All rights reserved.</p>
+      </div>
+      <div>
+        <h3>展覽單元</h3>
+        <p><a href="#about">展覽概念</a>・<a href="#stories">小螺絲 大力量</a>・<a href="#highlights">特展亮點</a>・<a href="#faq">FAQ</a></p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Lightbox -->
+<div id="lightbox" onclick="this.style.display='none'">
+  <img src="" alt="預覽">
+</div>
+
+<!-- Modal -->
+<div id="storyModal" role="dialog" aria-modal="true" aria-labelledby="storyTitle">
+  <div class="modal-card">
+    <div class="modal-head">
+      <strong id="storyTitle">人物故事</strong>
+      <button class="close" id="closeModal" type="button">關閉</button>
+    </div>
+    <div class="modal-body">
+      <h3 id="storyName"></h3>
+      <p id="storyQuote" style="color:#5a6572;margin-top:-6px"></p>
+      <div id="storyBody"></div>
+      <div class="tags" id="storyTags"></div>
+    </div>
+    <div class="modal-foot">
+      <button class="ghost" id="prevBtn" type="button">← 上一位</button>
+      <button class="ghost" id="nextBtn" type="button">下一位 →</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){const t=new Date('2025-11-01T10:00:00+08:00').getTime(),e=document.getElementById('countdown');function n(n){return String(n).padStart(2,'0')}function a(){let a=Math.max(0,t-Date.now()),o=Math.floor(a/864e5);a-=864e5*o;const d=Math.floor(a/36e5);a-=36e5*d;const r=Math.floor(a/6e4);e.textContent=`距離開展：${o} 天 ${n(d)} 小時 ${n(r)} 分鐘`}a(),setInterval(a,3e4)})();
+window.openLightbox=function(t){const e=document.getElementById('lightbox');e.querySelector('img').src=t,e.style.display='flex'};
+
+const stories=[
+  {id:'A',name:'受訪者 A',title:'把心結鬆開的人',quote:'在最硬的議題裡，做最軟的功夫。',body:`她長年處理醫療爭議，第一步總是釐清與傾聽，讓情緒有出口、信任得以重建；SARS 與 COVID 時仍選擇留下。面對 AI 她笑說「學就對了」，用穩定去承接不確定。`,tags:['溝通','調解','信任']},
+  {id:'B',name:'受訪者 B',title:'從高牆到笑容',quote:'把制度做實，把人放進制度裡。',body:`三十年走過醫療行政與教學，她把繁瑣變成品質的骨架；也學會放下防衛，用笑容讓距離消融。制度為了成就人，而不是反過來。`,tags:['教學','制度','關係']},
+  {id:'C',name:'受訪者 C',title:'兒科四十年的那盞燈',quote:'慢，是為了讓對方真的聽懂。',body:`他把經驗寫成原則：困難決策不隔夜、重大變化必回電。專業之外，是陪伴與尊重；不急不躁，是他能成為那盞穩的燈的原因。`,tags:['兒科','溝通','陪伴']},
+  {id:'D',name:'受訪者 D',title:'神外俠女的溫柔',quote:'俠女的刀向問題，不向人。',body:`她用數據談排班、提流程改進；走過偏鄉與海外，硬朗裡有溫柔。信念是「員工好，病人就會好」，在公平與照護之間找平衡。`,tags:['排班','流程','公平']},
+  {id:'E',name:'受訪者 E',title:'心導管的先行者',quote:'建制度、育人才，才是長程航道。',body:`自 1994 年加入草創的導管室，推廣橈動脈路徑、建立跨科 SOP 與登錄資料庫，把個人技術轉成團隊與制度，讓下一代站得更高。`,tags:['心導管','SOP','培育']},
+  {id:'F',name:'受訪者 F',title:'把數字變成制度的人',quote:'用數據改流程，用尊重帶人走。',body:`他以統計重構病歷流程、率先推動「病歷尾頁」，調閱更快、錯漏更少。管理不是命令，而是信任與陪伴。`,tags:['病歷','流程','管理']},
+  {id:'G',name:'受訪者 G',title:'跌倒後，仍選擇站起',quote:'把自己的挫敗，練成他人的保護墊。',body:`職涯像曲線，她以傾聽與實際支援接住後輩：補課、找資源，甚至默默買下那張關鍵機票。她把失敗整理成清單，讓團隊不必重犯。`,tags:['帶人','學習','韌性']},
+  {id:'H',name:'受訪者 H',title:'四十年的承諾',quote:'被託付的事，就做到最好。',body:`在護理、健保申報到院區管理間換位不換心，建立跨科協調與巡視機制。她提醒後輩：先說實話再求支援；放下與前行，都是專業。`,tags:['協調','責任','領導']},
+  {id:'I',name:'受訪者 I',title:'熱水推車的守護',quote:'在瑣碎裡守住尊嚴。',body:`推著熱水推車穿梭病房，從臉到手到腳，尊嚴先於速度。投入資訊化，建立條碼核對與雙人覆核，設計一頁式操作卡，讓轉型更穩。`,tags:['護理','尊嚴','數位']},
+  {id:'J',name:'受訪者 J',title:'讓檢查室發光',quote:'病人難得來一趟，我們就把它做完。',body:`見證檢查室從 3 人到 50 多人的擴展，她最在意一次到位：梳理動線、彈性時段、標準化話術與品質追蹤，讓病人少跑一步。`,tags:['流程','品質','病人旅程']},
+  {id:'K',name:'受訪者 K',title:'鐵血又溫柔的領導',quote:'鐵，是原則；血，是流動的同理。',body:`她把制度做成「可被感覺到的公平」：排班透明、晉升公開、回饋雙向。面對衝突，守倫理底線也找更好的作法。`,tags:['領導','倫理','公平']}
+];
+
+const wrap=document.getElementById('bookmarkConstellation');
+function render(items){
+  wrap.innerHTML='';
+  items.forEach((s,idx)=>{
+    const card=document.createElement('article');
+    card.className='bookmark '+(idx%3===0?'alt1':idx%3===1?'alt2':'');
+    card.setAttribute('role','listitem'); card.setAttribute('tabindex','0'); card.dataset.index=idx;
+    card.innerHTML=`<div class="ribbon">${s.id}</div><small>${s.dept}</small><h3>${s.title}</h3><p>${s.quote}</p><div class="tags" aria-hidden="true">${s.tags.slice(0,2).map(t=>`<span class="pill">${t}</span>`).join('')}</div>`;
+    card.addEventListener('click',()=>openStory(idx));
+    card.addEventListener('keypress',e=>{if(e.key==='Enter'){openStory(idx)}})
+    wrap.appendChild(card);
+  });
+  layoutConstellation();
+}
+render(stories);
+
+const searchEl=document.getElementById('search'), resetBtn=document.getElementById('resetBtn');
+searchEl.addEventListener('input',e=>{
+  const q=e.target.value.trim();
+  if(!q){render(stories);return;}
+  const lower=q.toLowerCase();
+  const filtered=stories.filter(s=>(s.name+s.title+s.dept+s.tags.join('')+s.body).toLowerCase().includes(lower));
+  render(filtered);
+});
+resetBtn.addEventListener('click',()=>{searchEl.value='';render(stories);searchEl.focus();});
+
+function layoutConstellation(){
+  const cards=[...wrap.querySelectorAll('.bookmark')];
+  if(window.innerWidth<=1080){cards.forEach(c=>{c.style.position='relative';c.style.left='';c.style.top='';});return;}
+  const rect=wrap.getBoundingClientRect(), cx=rect.width/2, cy=rect.height/2;
+  const inner=Math.min(rect.width,rect.height)*0.28, outer=Math.min(rect.width,rect.height)*0.42;
+  const innerCards=cards.slice(0,Math.min(5,cards.length));
+  const outerCards=cards.slice(Math.min(5,cards.length));
+  innerCards.forEach((card,i)=>{const angle=(-90+i*(360/innerCards.length))*Math.PI/180;place(card,cx+inner*Math.cos(angle),cy+inner*Math.sin(angle));});
+  outerCards.forEach((card,i)=>{const angle=(-90+i*(360/outerCards.length))*Math.PI/180;place(card,cx+outer*Math.cos(angle),cy+outer*Math.sin(angle));});
+}
+function place(card,x,y){const w=card.offsetWidth,h=card.offsetHeight;card.style.left=(x-w/2)+'px';card.style.top=(y-h/2)+'px';}
+window.addEventListener('resize',layoutConstellation);
+
+/* Modal */
+const modal=document.getElementById('storyModal'),storyTitle=document.getElementById('storyTitle'),storyName=document.getElementById('storyName'),storyQuote=document.getElementById('storyQuote'),storyBody=document.getElementById('storyBody'),storyTags=document.getElementById('storyTags'); let currentIndex=0;
+function openStory(i){currentIndex=i;const s=stories[i];storyTitle.textContent=s.title;storyName.textContent=`${s.name}｜${s.dept}`;storyQuote.textContent=s.quote;storyBody.innerHTML=`<p>${s.body}</p>`;storyTags.innerHTML=s.tags.map(t=>`<span class="pill">${t}</span>`).join('');modal.style.display='grid';}
+function closeStory(){modal.style.display='none'}
+document.getElementById('closeModal').addEventListener('click',closeStory);
+document.getElementById('prevBtn').addEventListener('click',()=>openStory((currentIndex-1+stories.length)%stories.length));
+document.getElementById('nextBtn').addEventListener('click',()=>openStory((currentIndex+1)%stories.length));
+modal.addEventListener('click',e=>{if(e.target===modal)closeStory()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeStory()});
+</script>
+</body>
+</html>
