@@ -101,15 +101,23 @@
   .close{background:var(--ink);color:#fff;border:none;border-radius:10px;padding:8px 12px;cursor:pointer}
 
   /* Responsive */
+  .bookmark-constellation.touch-grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;padding:18px 18px 26px;
+    min-height:auto;background:radial-gradient(circle at center, rgba(224,194,58,.25) 0%, rgba(224,194,58,.08) 35%, transparent 60%),#fff
+  }
+  .bookmark-constellation.touch-grid .glow-core{position:relative;transform:none;width:auto;border-radius:24px;padding:24px 22px;margin:0 auto 18px;box-shadow:none;border:1px solid rgba(224,194,58,.3)}
+  .bookmark-constellation.touch-grid .glow-core h3{font-size:18px}
+  .bookmark-constellation.touch-grid .glow-core p{font-size:14px}
+  .bookmark-constellation.touch-grid .bookmark{position:relative;width:auto;transform:none!important;box-shadow:0 6px 14px rgba(0,0,0,.06)}
+  .bookmark-constellation.touch-grid .bookmark::after{display:none}
+
   @media (max-width:1080px){
     .hero .wrap{grid-template-columns:1fr}
     .infogrid{grid-template-columns:repeat(2,1fr)}
     .cards{grid-template-columns:1fr}
     .grid-2{grid-template-columns:1fr}
-    .bookmark-constellation{
-      display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;padding:18px 18px 26px;
-      min-height:auto;background:radial-gradient(circle at center, rgba(224,194,58,.25) 0%, rgba(224,194,58,.08) 35%, transparent 60%),#fff
-    }
+    .bookmark-constellation{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;padding:18px 18px 26px;
+      min-height:auto;background:radial-gradient(circle at center, rgba(224,194,58,.25) 0%, rgba(224,194,58,.08) 35%, transparent 60%),#fff}
     .glow-core{position:relative;transform:none;width:auto;border-radius:24px;padding:24px 22px;margin:0 auto 18px;box-shadow:none;border:1px solid rgba(224,194,58,.3)}
     .glow-core h3{font-size:18px}
     .glow-core p{font-size:14px}
@@ -319,6 +327,8 @@ const stories=[
 ];
 
 const wrap=document.getElementById('bookmarkConstellation');
+const touchMedia=window.matchMedia('(hover: none) and (pointer: coarse)');
+const useGridLayout=()=>window.innerWidth<=1080||touchMedia.matches;
 function createCore(){
   const core=document.createElement('div');
   core.className='glow-core';
@@ -353,7 +363,9 @@ resetBtn.addEventListener('click',()=>{searchEl.value='';render(stories);searchE
 
 function layoutConstellation(){
   const cards=[...wrap.querySelectorAll('.bookmark')];
-  if(window.innerWidth<=1080){cards.forEach(c=>{c.style.position='relative';c.style.left='';c.style.top='';});return;}
+  const gridMode=useGridLayout();
+  wrap.classList.toggle('touch-grid',gridMode);
+  if(gridMode){cards.forEach(c=>{c.style.position='relative';c.style.left='';c.style.top='';});return;}
   const rect=wrap.getBoundingClientRect();
   cards.forEach(c=>{c.style.position='absolute';});
   const cx=rect.width/2, cy=rect.height/2;
@@ -455,6 +467,7 @@ function layoutConstellation(){
   relax(assignments);
 }
 window.addEventListener('resize',layoutConstellation);
+if(typeof touchMedia.addEventListener==='function'){touchMedia.addEventListener('change',layoutConstellation);}else if(typeof touchMedia.addListener==='function'){touchMedia.addListener(layoutConstellation);}
 
 /* Modal */
 const modal=document.getElementById('storyModal'),storyTitle=document.getElementById('storyTitle'),storyName=document.getElementById('storyName'),storyQuote=document.getElementById('storyQuote'),storyBody=document.getElementById('storyBody'),storyTags=document.getElementById('storyTags'); let currentIndex=0;
