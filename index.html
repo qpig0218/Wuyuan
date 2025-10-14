@@ -19,13 +19,14 @@
   /* HERO */
   header.hero{
     position:relative;min-height:84vh;display:grid;place-items:center;color:#fff;text-align:left;
-    background:linear-gradient(180deg,rgba(6,16,24,.72),rgba(6,16,24,.84)),url("https://github.com/qpig0218/Wuyuan/blob/main/吳園B.jpg") center/cover no-repeat;
+    background:linear-gradient(180deg,rgba(6,16,24,.72),rgba(6,16,24,.84)),url("吳園B.jpg") center/cover no-repeat;
   }
   .hero .wrap{width:100%;max-width:1200px;margin:0 auto;padding:0 20px;display:grid;grid-template-columns:1.15fr .95fr;gap:28px;align-items:center}
   .brand{display:flex;gap:12px;align-items:center;margin-bottom:10px}
   .brand .logo{width:46px;height:46px;border-radius:10px;background:#fff;display:grid;place-items:center;color:var(--ink);font-weight:800}
   .kicker{letter-spacing:.12em;text-transform:uppercase;font-weight:700;opacity:.9;font-size:14px}
   h1{font-size:clamp(30px,4.4vw,60px);line-height:1.04;margin:6px 0 12px}
+  .nowrap{white-space:nowrap}
   .badges{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}
   .badge{background:rgba(255,255,255,.12);padding:8px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.26);font-size:13px}
   .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:16px}
@@ -52,11 +53,14 @@
   .toolbar{display:flex;gap:10px;align-items:center;margin:8px 0 16px}
   .toolbar input[type="search"]{flex:1 1 auto;border:1px solid #e2e8ef;border-radius:12px;padding:10px 12px;font-size:14px;background:#fff}
   .bookmark-constellation{
-    position:relative;min-height:720px;border:1px solid #eef1f4;border-radius:18px;padding:30px;overflow:visible;
+    position:relative;min-height:760px;border:1px solid #eef1f4;border-radius:18px;padding:30px;overflow:visible;
     background:
       radial-gradient(circle at center, rgba(224,194,58,.30) 0%, rgba(224,194,58,.20) 12%, rgba(14,122,168,.10) 38%, rgba(14,122,168,0) 60%),
       radial-gradient(circle at center, rgba(255,255,255,.9) 0%, rgba(255,255,255,0) 60%), #fff;
   }
+  .glow-core{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:320px;max-width:70%;text-align:center;padding:36px 26px;border-radius:50%;background:rgba(255,255,255,.92);box-shadow:0 18px 46px rgba(14,26,34,.18);border:1px solid rgba(224,194,58,.28)}
+  .glow-core h3{margin:0;font-size:22px;letter-spacing:.08em;color:var(--yellow);text-transform:uppercase}
+  .glow-core p{margin:16px 0 0;color:#4a5360;line-height:1.7;font-size:15px}
   .bookmark{position:absolute;width:240px;background:var(--paper);border:1px solid #e7dfd3;border-radius:12px;padding:22px 16px 20px;box-shadow:0 8px 18px rgba(0,0,0,.08);cursor:pointer;transition:transform .18s ease, box-shadow .18s ease}
   .bookmark:hover{transform:translateY(-3px);box-shadow:0 12px 26px rgba(0,0,0,.12)}
   .bookmark::before{content:"";position:absolute;top:-12px;left:50%;transform:translateX(-50%);width:78px;height:18px;background:var(--yellow);border-radius:0 0 9px 9px;box-shadow:0 3px 8px rgba(0,0,0,.10)}
@@ -71,6 +75,7 @@
 
   /* Cards, Accordion, Footer */
   .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}
+  .cards-4{grid-template-columns:repeat(4,1fr)}
   .card{background:#fff;border:1px solid #eef1f4;border-radius:14px;padding:18px}
   .card h3{margin:0 0 10px}
   .accordion{border:1px solid #e8edf1;border-radius:12px;overflow:hidden}
@@ -105,13 +110,16 @@
       display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;padding:18px 18px 26px;
       min-height:auto;background:radial-gradient(circle at center, rgba(224,194,58,.25) 0%, rgba(224,194,58,.08) 35%, transparent 60%),#fff
     }
+    .glow-core{position:relative;transform:none;width:auto;border-radius:24px;padding:24px 22px;margin:0 auto 18px;box-shadow:none;border:1px solid rgba(224,194,58,.3)}
+    .glow-core h3{font-size:18px}
+    .glow-core p{font-size:14px}
     .bookmark{position:relative;width:auto;transform:none!important;box-shadow:0 6px 14px rgba(0,0,0,.06)}
     .bookmark::after{display:none}
   }
 </style>
 <meta property="og:title" content="吳園微光特展｜小螺絲 大力量">
 <meta property="og:description" content="像電影宣傳頁的展覽網站：以 11 則書籤故事看見『小螺絲 大力量』。">
-<meta property="og:image" content="assets/主視覺 2.PNG">
+<meta property="og:image" content="吳園B.jpg">
 <meta name="theme-color" content="#0e7aa8">
 </head>
 <body>
@@ -123,7 +131,7 @@
         <div class="logo">奇美</div>
         <div class="kicker">WUYUAN EXHIBITION — OFFICIAL</div>
       </div>
-      <h1>吳園微光特展｜<span style="color:var(--yellow)">小螺絲 大力量</span></h1>
+      <h1>吳園微光特展｜<span class="nowrap" style="color:var(--yellow)">小螺絲 大力量</span></h1>
       <div class="badges">
         <span class="badge">2025/11/01（六）– 11/16（日） 10:00–17:00</span>
         <span class="badge">臺南｜吳園公會堂 地下展覽室</span>
@@ -137,7 +145,7 @@
       <p class="meta" id="countdown">距離開展：計算中…</p>
     </div>
     <div aria-hidden="true">
-      <img class="poster" src="assets/主視覺 2.PNG" alt="吳園微光特展主視覺海報">
+      <img class="poster" src="吳園B.jpg" alt="吳園微光特展主視覺海報">
     </div>
   </div>
 </header>
@@ -179,7 +187,7 @@
   <div class="container">
     <h2>展覽概念</h2>
     <p class="lead">「每一個夢想，都是一盞微光。」當人文與醫療交織，微光會互相照亮；這場展覽把在地醫療、文化與教育連成一個故事，邀請你一起看見那些平日被忽略但不可或缺的手。</p>
-    <div class="cards">
+    <div class="cards cards-4">
       <div class="card"><h3>主題牆</h3><p>以大片視覺與關鍵句勾勒展覽世界觀，帶入「小螺絲 大力量」的主張。</p></div>
       <div class="card"><h3>白衣身影</h3><p>專業的數據、制度與臨床場景，以圖文版面呈現醫療現場的節奏。</p></div>
       <div class="card"><h3>光影故事</h3><p>以照片牆與作品描繪醫療與人文交會的瞬間，強化時間的重量感。</p></div>
@@ -246,7 +254,7 @@
     </div>
     <div class="card">
       <h3>聯絡我們</h3>
-      <p>信箱：<a href="mailto:@mail.chimei.org.tw">aids@mail.chimei.org.tw</a></p>
+      <p>信箱：<a href="mailto:cmh8888@mail.chimei.org.tw">cmh8888@mail.chimei.org.tw</a></p>
     </div>
   </div>
 </section>
@@ -311,13 +319,20 @@ const stories=[
 ];
 
 const wrap=document.getElementById('bookmarkConstellation');
+function createCore(){
+  const core=document.createElement('div');
+  core.className='glow-core';
+  core.innerHTML=`<h3>小螺絲 大力量</h3><p>每一個小螺絲，都是一盞微光；把看不見的日常，聚成可被看見的光。</p>`;
+  return core;
+}
 function render(items){
   wrap.innerHTML='';
+  wrap.appendChild(createCore());
   items.forEach((s,idx)=>{
     const card=document.createElement('article');
     card.className='bookmark '+(idx%3===0?'alt1':idx%3===1?'alt2':'');
     card.setAttribute('role','listitem'); card.setAttribute('tabindex','0'); card.dataset.index=idx;
-    card.innerHTML=`<div class="ribbon">${s.id}</div><small>${s.dept}</small><h3>${s.title}</h3><p>${s.quote}</p><div class="tags" aria-hidden="true">${s.tags.slice(0,2).map(t=>`<span class="pill">${t}</span>`).join('')}</div>`;
+    card.innerHTML=`<div class="ribbon">${s.id}</div><h3>${s.title}</h3><p>${s.quote}</p><div class="tags" aria-hidden="true">${s.tags.slice(0,2).map(t=>`<span class="pill">${t}</span>`).join('')}</div>`;
     card.addEventListener('click',()=>openStory(idx));
     card.addEventListener('keypress',e=>{if(e.key==='Enter'){openStory(idx)}})
     wrap.appendChild(card);
@@ -331,7 +346,7 @@ searchEl.addEventListener('input',e=>{
   const q=e.target.value.trim();
   if(!q){render(stories);return;}
   const lower=q.toLowerCase();
-  const filtered=stories.filter(s=>(s.name+s.title+s.dept+s.tags.join('')+s.body).toLowerCase().includes(lower));
+  const filtered=stories.filter(s=>(s.name+s.title+s.tags.join('')+s.body).toLowerCase().includes(lower));
   render(filtered);
 });
 resetBtn.addEventListener('click',()=>{searchEl.value='';render(stories);searchEl.focus();});
@@ -340,7 +355,12 @@ function layoutConstellation(){
   const cards=[...wrap.querySelectorAll('.bookmark')];
   if(window.innerWidth<=1080){cards.forEach(c=>{c.style.position='relative';c.style.left='';c.style.top='';});return;}
   const rect=wrap.getBoundingClientRect(), cx=rect.width/2, cy=rect.height/2;
-  const inner=Math.min(rect.width,rect.height)*0.28, outer=Math.min(rect.width,rect.height)*0.42;
+  const sample=cards[0];
+  const cardWidth=sample?sample.offsetWidth:240;
+  const cardHeight=sample?sample.offsetHeight:280;
+  const diameter=Math.min(rect.width,rect.height);
+  const inner=Math.max(cardWidth*1.4, diameter*0.36);
+  const outer=Math.max(inner+Math.max(cardWidth,cardHeight)*0.85, diameter*0.56);
   const innerCards=cards.slice(0,Math.min(5,cards.length));
   const outerCards=cards.slice(Math.min(5,cards.length));
   innerCards.forEach((card,i)=>{const angle=(-90+i*(360/innerCards.length))*Math.PI/180;place(card,cx+inner*Math.cos(angle),cy+inner*Math.sin(angle));});
@@ -351,7 +371,7 @@ window.addEventListener('resize',layoutConstellation);
 
 /* Modal */
 const modal=document.getElementById('storyModal'),storyTitle=document.getElementById('storyTitle'),storyName=document.getElementById('storyName'),storyQuote=document.getElementById('storyQuote'),storyBody=document.getElementById('storyBody'),storyTags=document.getElementById('storyTags'); let currentIndex=0;
-function openStory(i){currentIndex=i;const s=stories[i];storyTitle.textContent=s.title;storyName.textContent=`${s.name}｜${s.dept}`;storyQuote.textContent=s.quote;storyBody.innerHTML=`<p>${s.body}</p>`;storyTags.innerHTML=s.tags.map(t=>`<span class="pill">${t}</span>`).join('');modal.style.display='grid';}
+function openStory(i){currentIndex=i;const s=stories[i];storyTitle.textContent=s.title;storyName.textContent=s.name;storyQuote.textContent=s.quote;storyBody.innerHTML=`<p>${s.body}</p>`;storyTags.innerHTML=s.tags.map(t=>`<span class="pill">${t}</span>`).join('');modal.style.display='grid';}
 function closeStory(){modal.style.display='none'}
 document.getElementById('closeModal').addEventListener('click',closeStory);
 document.getElementById('prevBtn').addEventListener('click',()=>openStory((currentIndex-1+stories.length)%stories.length));
