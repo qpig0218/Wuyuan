@@ -354,19 +354,106 @@ resetBtn.addEventListener('click',()=>{searchEl.value='';render(stories);searchE
 function layoutConstellation(){
   const cards=[...wrap.querySelectorAll('.bookmark')];
   if(window.innerWidth<=1080){cards.forEach(c=>{c.style.position='relative';c.style.left='';c.style.top='';});return;}
-  const rect=wrap.getBoundingClientRect(), cx=rect.width/2, cy=rect.height/2;
+  const rect=wrap.getBoundingClientRect();
+  cards.forEach(c=>{c.style.position='absolute';});
+  const cx=rect.width/2, cy=rect.height/2;
+  const safeMargin=24;
+  const core=wrap.querySelector('.glow-core');
+  const coreRadius=core?core.offsetWidth/2:0;
   const sample=cards[0];
   const cardWidth=sample?sample.offsetWidth:240;
   const cardHeight=sample?sample.offsetHeight:280;
-  const diameter=Math.min(rect.width,rect.height);
-  const inner=Math.max(cardWidth*1.4, diameter*0.36);
-  const outer=Math.max(inner+Math.max(cardWidth,cardHeight)*0.85, diameter*0.56);
-  const innerCards=cards.slice(0,Math.min(5,cards.length));
-  const outerCards=cards.slice(Math.min(5,cards.length));
-  innerCards.forEach((card,i)=>{const angle=(-90+i*(360/innerCards.length))*Math.PI/180;place(card,cx+inner*Math.cos(angle),cy+inner*Math.sin(angle));});
-  outerCards.forEach((card,i)=>{const angle=(-90+i*(360/outerCards.length))*Math.PI/180;place(card,cx+outer*Math.cos(angle),cy+outer*Math.sin(angle));});
+  const maxCard=Math.max(cardWidth,cardHeight);
+  const innerCount=Math.min(5,cards.length);
+  const outerCount=Math.max(0,cards.length-innerCount);
+  const innerRadius=coreRadius+maxCard*0.75;
+  const outerRadius=innerRadius+maxCard*0.95;
+  const assignments=[];
+  const createAngles=(count,offset)=>Array.from({length:count},(_,i)=>(offset+i*(360/count))*Math.PI/180);
+  const placeWithBounds=(card,centerX,centerY)=>{
+    const w=card.offsetWidth,h=card.offsetHeight;
+    const minX=safeMargin,maxX=rect.width-safeMargin-w;
+    const minY=safeMargin,maxY=rect.height-safeMargin-h;
+    let left=Math.min(Math.max(centerX-w/2,minX),Math.max(minX,maxX));
+    let top=Math.min(Math.max(centerY-h/2,minY),Math.max(minY,maxY));
+    card.style.left=left+'px';
+    card.style.top=top+'px';
+    return updateState(card);
+  };
+  const keepAwayFromCore=state=>{
+    if(!coreRadius) return state;
+    const minDist=coreRadius+Math.max(state.width,state.height)/2+24;
+    const dx=state.centerX-cx, dy=state.centerY-cy;
+    let dist=Math.sqrt(dx*dx+dy*dy);
+    if(dist>=minDist||dist===0) return state;
+    const angle=Math.atan2(dy,dx)||0;
+    const targetX=cx+Math.cos(angle)*minDist;
+    const targetY=cy+Math.sin(angle)*minDist;
+    return placeWithBounds(state.card,targetX,targetY);
+  };
+  function updateState(card){
+    const w=card.offsetWidth,h=card.offsetHeight;
+    const left=parseFloat(card.style.left)||0;
+    const top=parseFloat(card.style.top)||0;
+    const centerX=left+w/2;
+    const centerY=top+h/2;
+    const radius=Math.sqrt(w*w+h*h)/2;
+    return {card,left,top,width:w,height:h,centerX,centerY,radius};
+  }
+  if(innerCount){
+    const innerAngles=createAngles(innerCount,-90);
+    cards.slice(0,innerCount).forEach((card,i)=>{
+      const angle=innerAngles[i];
+      const x=cx+innerRadius*Math.cos(angle);
+      const y=cy+innerRadius*Math.sin(angle);
+      const state=keepAwayFromCore(placeWithBounds(card,x,y));
+      assignments.push(state);
+    });
+  }
+  if(outerCount){
+    const outerAngles=createAngles(outerCount,-90+180/Math.max(outerCount,2));
+    cards.slice(innerCount).forEach((card,i)=>{
+      const angle=outerAngles[i];
+      const x=cx+outerRadius*Math.cos(angle);
+      const y=cy+outerRadius*Math.sin(angle);
+      const state=keepAwayFromCore(placeWithBounds(card,x,y));
+      assignments.push(state);
+    });
+  }
+  const relax=states=>{
+    const padding=18;
+    for(let iter=0;iter<24;iter++){
+      let moved=false;
+      for(let i=0;i<states.length;i++){
+        for(let j=i+1;j<states.length;j++){
+          const a=states[i],b=states[j];
+          const dx=b.centerX-a.centerX;
+          const dy=b.centerY-a.centerY;
+          let dist=Math.sqrt(dx*dx+dy*dy);
+          const minDist=a.radius+b.radius-padding;
+          if(dist && dist<minDist){
+            const overlap=(minDist-dist)/2;
+            const angle=Math.atan2(dy,dx);
+            const ax=a.centerX-Math.cos(angle)*overlap;
+            const ay=a.centerY-Math.sin(angle)*overlap;
+            const bx=b.centerX+Math.cos(angle)*overlap;
+            const by=b.centerY+Math.sin(angle)*overlap;
+            states[i]=keepAwayFromCore(placeWithBounds(a.card,ax,ay));
+            states[j]=keepAwayFromCore(placeWithBounds(b.card,bx,by));
+            moved=true;
+          }else if(!dist){
+            const jitter=12;
+            states[i]=keepAwayFromCore(placeWithBounds(a.card,a.centerX-jitter,a.centerY-jitter));
+            states[j]=keepAwayFromCore(placeWithBounds(b.card,b.centerX+jitter,b.centerY+jitter));
+            moved=true;
+          }
+        }
+      }
+      if(!moved) break;
+    }
+  };
+  relax(assignments);
 }
-function place(card,x,y){const w=card.offsetWidth,h=card.offsetHeight;card.style.left=(x-w/2)+'px';card.style.top=(y-h/2)+'px';}
 window.addEventListener('resize',layoutConstellation);
 
 /* Modal */
