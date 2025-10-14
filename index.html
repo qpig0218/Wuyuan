@@ -27,6 +27,13 @@
   .kicker{letter-spacing:.12em;text-transform:uppercase;font-weight:700;opacity:.9;font-size:14px}
   h1{font-size:clamp(30px,4.4vw,60px);line-height:1.04;margin:6px 0 12px}
   .nowrap{white-space:nowrap}
+  .hero .wrap>div:first-child{display:flex;flex-direction:column;align-items:flex-start}
+  .hero-title{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-start;margin:6px 0 12px}
+  .hero-prefix{font-size:clamp(30px,4.4vw,60px)}
+  .hero-focus{display:flex;flex-direction:column;align-items:flex-end;text-align:right;color:var(--yellow);font-weight:700;font-size:clamp(24px,3.6vw,48px);line-height:1.05;margin-left:auto}
+  .hero-focus span{display:block}
+  .hero-focus span+span{margin-top:2px}
+  .hero .badges{align-self:flex-end}
   .badges{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}
   .badge{background:rgba(255,255,255,.12);padding:8px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.26);font-size:13px}
   .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:16px}
@@ -139,7 +146,14 @@
         <div class="logo">奇美</div>
         <div class="kicker">WUYUAN EXHIBITION — OFFICIAL</div>
       </div>
-      <h1>吳園微光特展｜<span class="nowrap" style="color:var(--yellow)">白衣身影 光影故事 微光力量</span></h1>
+      <h1 class="hero-title">
+        <span class="hero-prefix">吳園微光特展｜</span>
+        <span class="hero-focus">
+          <span>白衣身影</span>
+          <span>光影故事</span>
+          <span>微光力量</span>
+        </span>
+      </h1>
       <div class="badges">
         <span class="badge">2025/11/01（六）– 11/16（日） 10:00–17:00</span>
         <span class="badge">臺南｜吳園公會堂 地下展覽室</span>
