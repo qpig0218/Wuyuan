@@ -467,6 +467,27 @@ function layoutConstellation(){
     }
   };
   relax(assignments);
+
+  const findAssignmentByTitle=title=>assignments.find(st=>st.card.querySelector('h3')?.textContent.trim()===title);
+  const replaceState=(prev,newState)=>{
+    if(!prev||!newState) return;
+    const idx=assignments.indexOf(prev);
+    if(idx>-1){assignments[idx]=newState;}
+  };
+
+  const moveF=findAssignmentByTitle('把數字變成制度的人');
+  if(moveF){
+    const desiredCenterX=rect.width-safeMargin-moveF.width/2;
+    const updated=keepAwayFromCore(placeWithBounds(moveF.card,desiredCenterX,moveF.centerY));
+    replaceState(moveF,updated);
+  }
+
+  const moveD=findAssignmentByTitle('神外俠女的溫柔');
+  if(moveD){
+    const lift=Math.max(safeMargin+moveD.height/2,moveD.centerY-36);
+    const updated=keepAwayFromCore(placeWithBounds(moveD.card,moveD.centerX,lift));
+    replaceState(moveD,updated);
+  }
 }
 window.addEventListener('resize',layoutConstellation);
 if(typeof touchMedia.addEventListener==='function'){touchMedia.addEventListener('change',layoutConstellation);}else if(typeof touchMedia.addListener==='function'){touchMedia.addListener(layoutConstellation);}
