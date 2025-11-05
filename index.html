@@ -81,6 +81,12 @@
   .cards-4{grid-template-columns:repeat(4,1fr)}
   .card{background:#fff;border:1px solid #eef1f4;border-radius:14px;padding:18px}
   .card h3{margin:0 0 10px}
+  .photo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:26px}
+  .photo-thumb{border:none;padding:0;border-radius:14px;overflow:hidden;box-shadow:0 8px 18px rgba(14,26,34,.14);cursor:pointer;transition:transform .18s ease,box-shadow .18s ease;background:#000;line-height:0}
+  .photo-thumb:hover,.photo-thumb:focus{transform:translateY(-4px);box-shadow:0 14px 28px rgba(14,26,34,.18)}
+  .photo-thumb:focus{outline:3px solid var(--yellow);outline-offset:4px}
+  .photo-thumb img{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(.94);transition:transform .22s ease}
+  .photo-thumb:hover img,.photo-thumb:focus img{transform:scale(1.04)}
   .accordion{border:1px solid #e8edf1;border-radius:12px;overflow:hidden}
   .acc{border-top:1px solid #e8edf1;background:#fff}
   .acc summary{list-style:none;cursor:pointer;padding:16px 18px;font-weight:700}
@@ -205,6 +211,39 @@
       <div class="card"><h3>白衣身影</h3><p>專業的數據、制度與臨床場景，以圖文版面呈現醫療護理現場的節奏。</p></div>
       <div class="card"><h3>光影故事</h3><p>以照片牆與作品描繪醫療與人文交會的瞬間，強化醫療的溫度以及時間的重量感。</p></div>
       <div class="card"><h3>微光力量</h3><p>把小螺絲般的日常彙成集體動能：尊重專業、誠信為本、團隊互信、持續學習。</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="live">
+  <div class="container">
+    <h2>活動實景</h2>
+    <p class="lead">展覽現場的光影與笑容，透過鏡頭留下的片刻，在這裡一次瀏覽。點擊照片可放大欣賞。</p>
+    <div class="photo-grid" role="list">
+      <button class="photo-thumb" role="listitem" type="button" onclick="openLightbox('DO01001626.JPG')" aria-label="檢視活動實景照片"><img src="DO01001626.JPG" alt="展覽活動實景照片" loading="lazy"></button>
+      <button class="photo-thumb" role="listitem" type="button" onclick="openLightbox('DO01001627.jpg')" aria-label="檢視活動實景照片"><img src="DO01001627.jpg" alt="展覽活動實景照片" loading="lazy"></button>
+      <button class="photo-thumb" role="listitem" type="button" onclick="openLightbox('DO01001629.jpg')" aria-label="檢視活動實景照片"><img src="DO01001629.jpg" alt="展覽活動實景照片" loading="lazy"></button>
+      <button class="photo-thumb" role="listitem" type="button" onclick="openLightbox('DO01001630.JPG')" aria-label="檢視活動實景照片"><img src="DO01001630.JPG" alt="展覽活動實景照片" loading="lazy"></button>
+      <button class="photo-thumb" role="listitem" type="button" onclick="openLightbox('DO01001632.jpg')" aria-label="檢視活動實景照片"><img src="DO01001632.jpg" alt="展覽活動實景照片" loading="lazy"></button>
+      <button class="photo-thumb" role="listitem" type="button" onclick="openLightbox('DO01001634.jpg')" aria-label="檢視活動實景照片"><img src="DO01001634.jpg" alt="展覽活動實景照片" loading="lazy"></button>
+      <button class="photo-thumb" role="listitem" type="button" onclick="openLightbox('DO01001636.jpg')" aria-label="檢視活動實景照片"><img src="DO01001636.jpg" alt="展覽活動實景照片" loading="lazy"></button>
+      <button class="photo-thumb" role="listitem" type="button" onclick="openLightbox('DO01001637.jpg')" aria-label="檢視活動實景照片"><img src="DO01001637.jpg" alt="展覽活動實景照片" loading="lazy"></button>
+      <button class="photo-thumb" role="listitem" type="button" onclick="openLightbox('DO01001638.jpg')" aria-label="檢視活動實景照片"><img src="DO01001638.jpg" alt="展覽活動實景照片" loading="lazy"></button>
+      <button class="photo-thumb" role="listitem" type="button" onclick="openLightbox('DO01001639.jpg')" aria-label="檢視活動實景照片"><img src="DO01001639.jpg" alt="展覽活動實景照片" loading="lazy"></button>
+      <button class="photo-thumb" role="listitem" type="button" onclick="openLightbox('DO01001643.JPG')" aria-label="檢視活動實景照片"><img src="DO01001643.JPG" alt="展覽活動實景照片" loading="lazy"></button>
+      <button class="photo-thumb" role="listitem" type="button" onclick="openLightbox('DO01001645.jpg')" aria-label="檢視活動實景照片"><img src="DO01001645.jpg" alt="展覽活動實景照片" loading="lazy"></button>
+      <button class="photo-thumb" role="listitem" type="button" onclick="openLightbox('DO01001646.jpg')" aria-label="檢視活動實景照片"><img src="DO01001646.jpg" alt="展覽活動實景照片" loading="lazy"></button>
+      <button class="photo-thumb" role="listitem" type="button" onclick="openLightbox('DO01001649.jpg')" aria-label="檢視活動實景照片"><img src="DO01001649.jpg" alt="展覽活動實景照片" loading="lazy"></button>
+      <button class="photo-thumb" role="listitem" type="button" onclick="openLightbox('DO01001650.jpg')" aria-label="檢視活動實景照片"><img src="DO01001650.jpg" alt="展覽活動實景照片" loading="lazy"></button>
+      <button class="photo-thumb" role="listitem" type="button" onclick="openLightbox('DO01001651.jpg')" aria-label="檢視活動實景照片"><img src="DO01001651.jpg" alt="展覽活動實景照片" loading="lazy"></button>
+      <button class="photo-thumb" role="listitem" type="button" onclick="openLightbox('DO01001652.jpg')" aria-label="檢視活動實景照片"><img src="DO01001652.jpg" alt="展覽活動實景照片" loading="lazy"></button>
+      <button class="photo-thumb" role="listitem" type="button" onclick="openLightbox('DO01001653.jpg')" aria-label="檢視活動實景照片"><img src="DO01001653.jpg" alt="展覽活動實景照片" loading="lazy"></button>
+      <button class="photo-thumb" role="listitem" type="button" onclick="openLightbox('DO01001655.jpg')" aria-label="檢視活動實景照片"><img src="DO01001655.jpg" alt="展覽活動實景照片" loading="lazy"></button>
+      <button class="photo-thumb" role="listitem" type="button" onclick="openLightbox('DO01001656.jpg')" aria-label="檢視活動實景照片"><img src="DO01001656.jpg" alt="展覽活動實景照片" loading="lazy"></button>
+      <button class="photo-thumb" role="listitem" type="button" onclick="openLightbox('DO01001657.jpg')" aria-label="檢視活動實景照片"><img src="DO01001657.jpg" alt="展覽活動實景照片" loading="lazy"></button>
+      <button class="photo-thumb" role="listitem" type="button" onclick="openLightbox('DO01001664.jpg')" aria-label="檢視活動實景照片"><img src="DO01001664.jpg" alt="展覽活動實景照片" loading="lazy"></button>
+      <button class="photo-thumb" role="listitem" type="button" onclick="openLightbox('IMG_8267.jpg')" aria-label="檢視活動實景照片"><img src="IMG_8267.jpg" alt="展覽活動實景照片" loading="lazy"></button>
+      <button class="photo-thumb" role="listitem" type="button" onclick="openLightbox('IMG_8316.jpg')" aria-label="檢視活動實景照片"><img src="IMG_8316.jpg" alt="展覽活動實景照片" loading="lazy"></button>
     </div>
   </div>
 </section>
