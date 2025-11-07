@@ -36,6 +36,7 @@
   .btn{display:inline-flex;align-items:center;gap:8px;background:var(--yellow);color:#1a1a1a;font-weight:800;border-radius:12px;padding:12px 16px;border:none;cursor:pointer;font-size:16px;box-shadow:0 6px 16px rgba(0,0,0,.18)}
   .btn.secondary{background:#fff;color:var(--ink)}
   .meta{margin-top:12px;color:#e7f0f6;font-size:14px}
+  .countdown-highlight{color:var(--yellow)}
 
   /* INFO STRIP（修正被裁掉） */
   .container{max-width:1200px;margin:0 auto;padding:0 20px}
@@ -161,7 +162,7 @@
         <a class="btn" href="#stories">看人物書籤</a>
         <a class="btn secondary" href="#about">展覽概念</a>
       </div>
-      <p class="meta" id="countdown">距離開展：計算中…</p>
+      <p class="meta" id="countdown">醫學人文展：<span class="countdown-highlight">展覽現正舉辦，敬邀您的蒞臨。</span></p>
     </div>
     <div aria-hidden="true">
       <img class="poster" src="吳園B.jpg" alt="吳園微光特展主視覺海報">
@@ -349,7 +350,7 @@
 </div>
 
 <script>
-(function(){const t=new Date('2025-11-01T10:00:00+08:00').getTime(),e=document.getElementById('countdown');function n(n){return String(n).padStart(2,'0')}function a(){let a=Math.max(0,t-Date.now()),o=Math.floor(a/864e5);a-=864e5*o;const d=Math.floor(a/36e5);a-=36e5*d;const r=Math.floor(a/6e4);e.textContent=`距離開展：${o} 天 ${n(d)} 小時 ${n(r)} 分鐘`}a(),setInterval(a,3e4)})();
+(function(){const e=document.getElementById('countdown');if(!e)return;e.innerHTML='醫學人文展：<span class="countdown-highlight">展覽現正舉辦，敬邀您的蒞臨。</span>';})();
 window.openLightbox=function(t){const e=document.getElementById('lightbox');e.querySelector('img').src=t,e.style.display='flex'};
 
 const stories=[
