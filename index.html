@@ -57,10 +57,11 @@
   .toolbar{display:flex;gap:10px;align-items:center;margin:8px 0 16px}
   .toolbar input[type="search"]{flex:1 1 auto;border:1px solid #e2e8ef;border-radius:12px;padding:10px 12px;font-size:14px;background:#fff}
   .bookmark-constellation{
-    position:relative;min-height:760px;border:1px solid #eef1f4;border-radius:18px;padding:30px;overflow:visible;
+    position:relative;min-height:760px;border:1px solid #2f363f;border-radius:18px;padding:30px;overflow:visible;
     background:
-      radial-gradient(circle at center, rgba(224,194,58,.30) 0%, rgba(224,194,58,.20) 12%, rgba(14,122,168,.10) 38%, rgba(14,122,168,0) 60%),
-      radial-gradient(circle at center, rgba(255,255,255,.9) 0%, rgba(255,255,255,0) 60%), #fff;
+      radial-gradient(circle at center, rgba(224,194,58,.22) 0%, rgba(224,194,58,.12) 26%, rgba(224,194,58,0) 62%),
+      linear-gradient(155deg,#2f333b,#1d2027);
+    box-shadow:0 16px 36px rgba(8,12,18,.35);
   }
   .glow-core{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:320px;max-width:70%;text-align:center;padding:36px 26px;border-radius:50%;background:rgba(255,255,255,.92);box-shadow:0 18px 46px rgba(14,26,34,.18);border:1px solid rgba(224,194,58,.28)}
   .glow-core h3{margin:0;font-size:22px;letter-spacing:.08em;color:var(--yellow);text-transform:uppercase}
@@ -76,6 +77,19 @@
   .bookmark p{margin:0;color:#36414d}
   .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
   .pill{display:inline-block;background:var(--blue);color:#fff;padding:4px 10px;border-radius:999px;font-size:12px}
+
+  #stories{background:#eef1f5}
+  #stories .lead{color:#56606d}
+  #stories .bookmark-wrap{position:relative}
+  #stories .toolbar input[type="search"]{border-color:#d5dbe3}
+  #stories .ghost{color:#3a4652;border-color:#b3bcc7}
+
+  #live{background:linear-gradient(160deg,#2e323a,#1b1f25);color:#f1f4f8}
+  #live h2{color:#f7f9fb}
+  #live .lead{color:#d9dee7}
+  #live .photo-grid{gap:18px}
+  #live .photo-thumb{box-shadow:0 12px 28px rgba(5,7,12,.45);border:1px solid rgba(255,255,255,.06)}
+  #live .photo-thumb:focus{outline-color:#f1c842}
 
   /* Cards, Accordion, Footer */
   .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}
@@ -114,7 +128,10 @@
   .bookmark-constellation.touch-grid{
     display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;padding:18px 18px 26px;
     min-height:auto;justify-items:center;
-    background:radial-gradient(circle at center, rgba(224,194,58,.25) 0%, rgba(224,194,58,.08) 35%, transparent 60%),#fff
+    background:
+      radial-gradient(circle at center, rgba(224,194,58,.18) 0%, rgba(224,194,58,.08) 32%, rgba(224,194,58,0) 62%),
+      linear-gradient(155deg,#2f333b,#1d2027);
+    border:1px solid #2f363f;box-shadow:0 12px 28px rgba(8,12,18,.32)
   }
   .bookmark-constellation.touch-grid .glow-core{position:relative;transform:none;width:auto;border-radius:24px;padding:24px 22px;margin:0 auto 18px;box-shadow:none;border:1px solid rgba(224,194,58,.3)}
   .bookmark-constellation.touch-grid .glow-core h3{font-size:18px}
@@ -129,7 +146,9 @@
     .cards{grid-template-columns:1fr}
     .grid-2{grid-template-columns:1fr}
     .bookmark-constellation{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;padding:18px 18px 26px;
-      min-height:auto;justify-items:center;background:radial-gradient(circle at center, rgba(224,194,58,.25) 0%, rgba(224,194,58,.08) 35%, transparent 60%),#fff}
+      min-height:auto;justify-items:center;background:
+        radial-gradient(circle at center, rgba(224,194,58,.18) 0%, rgba(224,194,58,.08) 32%, rgba(224,194,58,0) 62%),
+        linear-gradient(155deg,#2f333b,#1d2027);border:1px solid #2f363f;box-shadow:0 12px 28px rgba(8,12,18,.32)}
     .glow-core{position:relative;transform:none;width:auto;border-radius:24px;padding:24px 22px;margin:0 auto 18px;box-shadow:none;border:1px solid rgba(224,194,58,.3)}
     .glow-core h3{font-size:18px}
     .glow-core p{font-size:14px}
