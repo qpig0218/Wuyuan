@@ -102,6 +102,17 @@
   .photo-thumb:focus{outline:3px solid var(--yellow);outline-offset:4px}
   .photo-thumb img{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(.94);transition:transform .22s ease}
   .photo-thumb:hover img,.photo-thumb:focus img{transform:scale(1.04)}
+  #pulse{background:#fdf8e6}
+  #pulse .lead{color:#8a7541}
+  .pulse-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:18px;margin-top:28px}
+  .pulse-note{position:relative;background:#fff9d9;border:1px solid #f3e1a4;border-radius:16px;padding:16px;box-shadow:0 12px 28px rgba(142,103,29,.18);transition:transform .18s ease,box-shadow .18s ease}
+  .pulse-note::before{content:"";position:absolute;top:-12px;left:50%;transform:translateX(-50%) rotate(-2deg);width:72px;height:18px;background:rgba(255,255,255,.7);border-radius:4px;box-shadow:0 3px 6px rgba(0,0,0,.12)}
+  .pulse-note img{width:100%;border-radius:12px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.6);display:block}
+  .pulse-note span{display:block;margin-top:8px;font-size:13px;font-weight:700;color:#b08527;letter-spacing:.05em;text-transform:uppercase}
+  .pulse-note:nth-child(3n){transform:rotate(-1.5deg)}
+  .pulse-note:nth-child(3n+1){transform:rotate(.8deg)}
+  .pulse-note:nth-child(3n+2){transform:rotate(-.4deg)}
+  .pulse-note:hover{transform:rotate(0deg) translateY(-4px);box-shadow:0 18px 34px rgba(142,103,29,.22)}
   .accordion{border:1px solid #e8edf1;border-radius:12px;overflow:hidden}
   .acc{border-top:1px solid #e8edf1;background:#fff}
   .acc summary{list-style:none;cursor:pointer;padding:16px 18px;font-weight:700}
@@ -305,6 +316,295 @@
         <summary>場地無障礙與交通？</summary>
         <div class="content"><p>吳園公會堂設有無障礙動線；交通資訊依主辦單位公告。</p></div>
       </details>
+    </div>
+  </div>
+</section>
+
+<section id="pulse">
+  <div class="container">
+    <h2>觀展脈動</h2>
+    <p class="lead">把觀眾的便利貼留言牆搬上網站，1 號到 70 號的留言圖檔全數上線，像在展間翻閱一張張手寫心情。</p>
+    <div class="pulse-grid" role="list">
+      <article class="pulse-note" role="listitem">
+        <img src="1.jpg" alt="觀展留言圖 01" loading="lazy">
+        <span># 01</span>
+      </article>
+      <article class="pulse-note" role="listitem">
+        <img src="2.jpg" alt="觀展留言圖 02" loading="lazy">
+        <span># 02</span>
+      </article>
+      <article class="pulse-note" role="listitem">
+        <img src="3.jpg" alt="觀展留言圖 03" loading="lazy">
+        <span># 03</span>
+      </article>
+      <article class="pulse-note" role="listitem">
+        <img src="4.jpg" alt="觀展留言圖 04" loading="lazy">
+        <span># 04</span>
+      </article>
+      <article class="pulse-note" role="listitem">
+        <img src="5.jpg" alt="觀展留言圖 05" loading="lazy">
+        <span># 05</span>
+      </article>
+      <article class="pulse-note" role="listitem">
+        <img src="6.jpg" alt="觀展留言圖 06" loading="lazy">
+        <span># 06</span>
+      </article>
+      <article class="pulse-note" role="listitem">
+        <img src="7.jpg" alt="觀展留言圖 07" loading="lazy">
+        <span># 07</span>
+      </article>
+      <article class="pulse-note" role="listitem">
+        <img src="8.jpg" alt="觀展留言圖 08" loading="lazy">
+        <span># 08</span>
+      </article>
+      <article class="pulse-note" role="listitem">
+        <img src="9.jpg" alt="觀展留言圖 09" loading="lazy">
+        <span># 09</span>
+      </article>
+      <article class="pulse-note" role="listitem">
+        <img src="10.jpg" alt="觀展留言圖 10" loading="lazy">
+        <span># 10</span>
+      </article>
+      <article class="pulse-note" role="listitem">
+        <img src="11.jpg" alt="觀展留言圖 11" loading="lazy">
+        <span># 11</span>
+      </article>
+      <article class="pulse-note" role="listitem">
+        <img src="12.jpg" alt="觀展留言圖 12" loading="lazy">
+        <span># 12</span>
+      </article>
+      <article class="pulse-note" role="listitem">
+        <img src="13.jpg" alt="觀展留言圖 13" loading="lazy">
+        <span># 13</span>
+      </article>
+      <article class="pulse-note" role="listitem">
+        <img src="14.jpg" alt="觀展留言圖 14" loading="lazy">
+        <span># 14</span>
+      </article>
+      <article class="pulse-note" role="listitem">
+        <img src="15.jpg" alt="觀展留言圖 15" loading="lazy">
+        <span># 15</span>
+      </article>
+      <article class="pulse-note" role="listitem">
+        <img src="16.jpg" alt="觀展留言圖 16" loading="lazy">
+        <span># 16</span>
+      </article>
+      <article class="pulse-note" role="listitem">
+        <img src="17.jpg" alt="觀展留言圖 17" loading="lazy">
+        <span># 17</span>
+      </article>
+      <article class="pulse-note" role="listitem">
+        <img src="18.jpg" alt="觀展留言圖 18" loading="lazy">
+        <span># 18</span>
+      </article>
+      <article class="pulse-note" role="listitem">
+        <img src="19.jpg" alt="觀展留言圖 19" loading="lazy">
+        <span># 19</span>
+      </article>
+      <article class="pulse-note" role="listitem">
+        <img src="20.jpg" alt="觀展留言圖 20" loading="lazy">
+        <span># 20</span>
+      </article>
+      <article class="pulse-note" role="listitem">
+        <img src="21.jpg" alt="觀展留言圖 21" loading="lazy">
+        <span># 21</span>
+      </article>
+      <article class="pulse-note" role="listitem">
+        <img src="22.jpg" alt="觀展留言圖 22" loading="lazy">
+        <span># 22</span>
+      </article>
+      <article class="pulse-note" role="listitem">
+        <img src="23.jpg" alt="觀展留言圖 23" loading="lazy">
+        <span># 23</span>
+      </article>
+      <article class="pulse-note" role="listitem">
+        <img src="24.jpg" alt="觀展留言圖 24" loading="lazy">
+        <span># 24</span>
+      </article>
+      <article class="pulse-note" role="listitem">
+        <img src="25.jpg" alt="觀展留言圖 25" loading="lazy">
+        <span># 25</span>
+      </article>
+      <article class="pulse-note" role="listitem">
+        <img src="26.jpg" alt="觀展留言圖 26" loading="lazy">
+        <span># 26</span>
+      </article>
+      <article class="pulse-note" role="listitem">
+        <img src="27.jpg" alt="觀展留言圖 27" loading="lazy">
+        <span># 27</span>
+      </article>
+      <article class="pulse-note" role="listitem">
+        <img src="28.jpg" alt="觀展留言圖 28" loading="lazy">
+        <span># 28</span>
+      </article>
+      <article class="pulse-note" role="listitem">
+        <img src="29.jpg" alt="觀展留言圖 29" loading="lazy">
+        <span># 29</span>
+      </article>
+      <article class="pulse-note" role="listitem">
+        <img src="30.jpg" alt="觀展留言圖 30" loading="lazy">
+        <span># 30</span>
+      </article>
+      <article class="pulse-note" role="listitem">
+        <img src="31.jpg" alt="觀展留言圖 31" loading="lazy">
+        <span># 31</span>
+      </article>
+      <article class="pulse-note" role="listitem">
+        <img src="32.jpg" alt="觀展留言圖 32" loading="lazy">
+        <span># 32</span>
+      </article>
+      <article class="pulse-note" role="listitem">
+        <img src="33.jpg" alt="觀展留言圖 33" loading="lazy">
+        <span># 33</span>
+      </article>
+      <article class="pulse-note" role="listitem">
+        <img src="34.jpg" alt="觀展留言圖 34" loading="lazy">
+        <span># 34</span>
+      </article>
+      <article class="pulse-note" role="listitem">
+        <img src="35.jpg" alt="觀展留言圖 35" loading="lazy">
+        <span># 35</span>
+      </article>
+      <article class="pulse-note" role="listitem">
+        <img src="36.jpg" alt="觀展留言圖 36" loading="lazy">
+        <span># 36</span>
+      </article>
+      <article class="pulse-note" role="listitem">
+        <img src="37.jpg" alt="觀展留言圖 37" loading="lazy">
+        <span># 37</span>
+      </article>
+      <article class="pulse-note" role="listitem">
+        <img src="38.jpg" alt="觀展留言圖 38" loading="lazy">
+        <span># 38</span>
+      </article>
+      <article class="pulse-note" role="listitem">
+        <img src="39.jpg" alt="觀展留言圖 39" loading="lazy">
+        <span># 39</span>
+      </article>
+      <article class="pulse-note" role="listitem">
+        <img src="40.jpg" alt="觀展留言圖 40" loading="lazy">
+        <span># 40</span>
+      </article>
+      <article class="pulse-note" role="listitem">
+        <img src="41.jpg" alt="觀展留言圖 41" loading="lazy">
+        <span># 41</span>
+      </article>
+      <article class="pulse-note" role="listitem">
+        <img src="42.jpg" alt="觀展留言圖 42" loading="lazy">
+        <span># 42</span>
+      </article>
+      <article class="pulse-note" role="listitem">
+        <img src="43.jpg" alt="觀展留言圖 43" loading="lazy">
+        <span># 43</span>
+      </article>
+      <article class="pulse-note" role="listitem">
+        <img src="44.jpg" alt="觀展留言圖 44" loading="lazy">
+        <span># 44</span>
+      </article>
+      <article class="pulse-note" role="listitem">
+        <img src="45.jpg" alt="觀展留言圖 45" loading="lazy">
+        <span># 45</span>
+      </article>
+      <article class="pulse-note" role="listitem">
+        <img src="46.jpg" alt="觀展留言圖 46" loading="lazy">
+        <span># 46</span>
+      </article>
+      <article class="pulse-note" role="listitem">
+        <img src="47.jpg" alt="觀展留言圖 47" loading="lazy">
+        <span># 47</span>
+      </article>
+      <article class="pulse-note" role="listitem">
+        <img src="48.jpg" alt="觀展留言圖 48" loading="lazy">
+        <span># 48</span>
+      </article>
+      <article class="pulse-note" role="listitem">
+        <img src="49.jpg" alt="觀展留言圖 49" loading="lazy">
+        <span># 49</span>
+      </article>
+      <article class="pulse-note" role="listitem">
+        <img src="50.jpg" alt="觀展留言圖 50" loading="lazy">
+        <span># 50</span>
+      </article>
+      <article class="pulse-note" role="listitem">
+        <img src="51.jpg" alt="觀展留言圖 51" loading="lazy">
+        <span># 51</span>
+      </article>
+      <article class="pulse-note" role="listitem">
+        <img src="52.jpg" alt="觀展留言圖 52" loading="lazy">
+        <span># 52</span>
+      </article>
+      <article class="pulse-note" role="listitem">
+        <img src="53.jpg" alt="觀展留言圖 53" loading="lazy">
+        <span># 53</span>
+      </article>
+      <article class="pulse-note" role="listitem">
+        <img src="54.jpg" alt="觀展留言圖 54" loading="lazy">
+        <span># 54</span>
+      </article>
+      <article class="pulse-note" role="listitem">
+        <img src="55.jpg" alt="觀展留言圖 55" loading="lazy">
+        <span># 55</span>
+      </article>
+      <article class="pulse-note" role="listitem">
+        <img src="56.jpg" alt="觀展留言圖 56" loading="lazy">
+        <span># 56</span>
+      </article>
+      <article class="pulse-note" role="listitem">
+        <img src="57.jpg" alt="觀展留言圖 57" loading="lazy">
+        <span># 57</span>
+      </article>
+      <article class="pulse-note" role="listitem">
+        <img src="58.jpg" alt="觀展留言圖 58" loading="lazy">
+        <span># 58</span>
+      </article>
+      <article class="pulse-note" role="listitem">
+        <img src="59.jpg" alt="觀展留言圖 59" loading="lazy">
+        <span># 59</span>
+      </article>
+      <article class="pulse-note" role="listitem">
+        <img src="60.jpg" alt="觀展留言圖 60" loading="lazy">
+        <span># 60</span>
+      </article>
+      <article class="pulse-note" role="listitem">
+        <img src="61.jpg" alt="觀展留言圖 61" loading="lazy">
+        <span># 61</span>
+      </article>
+      <article class="pulse-note" role="listitem">
+        <img src="62.jpg" alt="觀展留言圖 62" loading="lazy">
+        <span># 62</span>
+      </article>
+      <article class="pulse-note" role="listitem">
+        <img src="63.jpg" alt="觀展留言圖 63" loading="lazy">
+        <span># 63</span>
+      </article>
+      <article class="pulse-note" role="listitem">
+        <img src="64.jpg" alt="觀展留言圖 64" loading="lazy">
+        <span># 64</span>
+      </article>
+      <article class="pulse-note" role="listitem">
+        <img src="65.jpg" alt="觀展留言圖 65" loading="lazy">
+        <span># 65</span>
+      </article>
+      <article class="pulse-note" role="listitem">
+        <img src="66.jpg" alt="觀展留言圖 66" loading="lazy">
+        <span># 66</span>
+      </article>
+      <article class="pulse-note" role="listitem">
+        <img src="67.jpg" alt="觀展留言圖 67" loading="lazy">
+        <span># 67</span>
+      </article>
+      <article class="pulse-note" role="listitem">
+        <img src="68.jpg" alt="觀展留言圖 68" loading="lazy">
+        <span># 68</span>
+      </article>
+      <article class="pulse-note" role="listitem">
+        <img src="69.jpg" alt="觀展留言圖 69" loading="lazy">
+        <span># 69</span>
+      </article>
+      <article class="pulse-note" role="listitem">
+        <img src="70.jpg" alt="觀展留言圖 70" loading="lazy">
+        <span># 70</span>
+      </article>
     </div>
   </div>
 </section>
