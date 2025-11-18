@@ -102,6 +102,18 @@
   .cards-4{grid-template-columns:repeat(4,1fr)}
   .card{background:#fff;border:1px solid #eef1f4;border-radius:14px;padding:18px}
   .card h3{margin:0 0 10px}
+  #press{background:#f2f3f7}
+  #press .card{position:relative;overflow:hidden;border-color:#dfe5ee;box-shadow:0 10px 22px rgba(14,26,34,.08);animation:pressGlow 3.6s ease-in-out infinite}
+  #press .card::after{content:"";position:absolute;inset:-50% -70%;background:radial-gradient(circle,rgba(224,194,58,.35),rgba(224,194,58,0) 60%);opacity:0;pointer-events:none;animation:pressShimmer 3.6s ease-in-out infinite}
+  @keyframes pressGlow{
+    0%,100%{box-shadow:0 10px 22px rgba(14,26,34,.08)}
+    50%{box-shadow:0 16px 32px rgba(224,194,58,.4)}
+  }
+  @keyframes pressShimmer{
+    0%{transform:rotate(22deg) translateX(-40%);opacity:.05}
+    50%{transform:rotate(22deg) translateX(30%);opacity:.45}
+    100%{transform:rotate(22deg) translateX(120%);opacity:0}
+  }
   .photo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:26px}
   .photo-thumb{border:none;padding:0;border-radius:14px;overflow:hidden;box-shadow:0 8px 18px rgba(14,26,34,.14);cursor:pointer;transition:transform .18s ease,box-shadow .18s ease;background:#000;line-height:0}
   .photo-thumb:hover,.photo-thumb:focus{transform:translateY(-4px);box-shadow:0 14px 28px rgba(14,26,34,.18)}
@@ -596,7 +608,7 @@
   </div>
 </section>
 
-<section id="press" style="background:#fffef8">
+<section id="press" style="background:#f2f3f7">
   <div class="container">
     <h2>相關新聞報導</h2>
     <p class="lead">媒體以不同角度記錄「奇美月」如何把醫療、教育、人文藝術串成跨界盛典，也見證吳園現場滿滿的醫護故事與無牆醫院精神。</p>
