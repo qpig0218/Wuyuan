@@ -84,6 +84,51 @@
   .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
   .pill{display:inline-block;background:var(--blue);color:#fff;padding:4px 10px;border-radius:999px;font-size:12px}
 
+.story-block p {
+  text-align: justify;
+  text-justify: inter-character; /* 全形中文也會兩端對齊 */
+  line-height: 1.9;
+  margin: 12px 0;
+  font-size: 16.5px;
+  color: #4d5562;
+}
+
+.story-block p {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeSlide 0.8s ease-out forwards;
+}
+
+.story-block p:nth-child(1) { animation-delay: 0.05s; }
+.story-block p:nth-child(2) { animation-delay: 0.12s; }
+.story-block p:nth-child(3) { animation-delay: 0.18s; }
+.story-block p:nth-child(4) { animation-delay: 0.24s; }
+.story-block p:nth-child(5) { animation-delay: 0.30s; }
+.story-block p:nth-child(6) { animation-delay: 0.36s; }
+.story-block p:nth-child(7) { animation-delay: 0.42s; }
+.story-block p:nth-child(8) { animation-delay: 0.48s; }
+.story-block p:nth-child(9) { animation-delay: 0.54s; }
+.story-block p:nth-child(10) { animation-delay: 0.60s; }
+
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+  
+/* 讓 strong 更突出，但不刺眼 */
+.story-block strong {
+  color: #0e7aa8;
+  font-weight: 700;
+}
+
+  
   #stories{background:#eef1f5}
   #stories .lead{color:#56606d}
   #stories .bookmark-wrap{position:relative}
@@ -297,13 +342,23 @@
 <section id="stories">
   <div class="container">
     <h2> 小螺絲 大力量- 微光力量 </h2>
-    <p class="lead">微光力量：記錄小螺絲般的日常，支撐起醫院的大能量。一所醫院的運轉，不只是手術燈下的專業；還有制度、教育、行政、資訊與後勤的默默把關。我們走訪 11 位不同崗位的同仁，把他們的專注與信念化作文字：精準與耐心、溫情與承擔，彙成一種共同語言——彼此成就、彼此託付。醫療之所以可靠，多成立於「看不見的地方」。從手術房到病歷室，從教學單位到公共事務，同一條主線清晰可見：把流程做穩，把人放進制度裡。有人用數據讓混亂變秩序；有人以傾聽修復誤解與信任；有人把技術寫成課程與指引，讓專業不只停在個人手中。遇到疫情，他們守住現場；面對數位轉型與 AI，他們不退場、願意學新工具。這些選擇背後，有同一個信念：「員工好，病人就會好。」它不是口號，而是每天被踐行的標尺。真正讓醫院堅實的，不只有第一線；而是每一顆小螺絲彼此扣合，讓「奇美」被記住為可靠與溫暖。這份識別文化，可被讀成四個詞：<strong>尊重專業</strong>、<strong>誠信為本</strong>、<strong>團隊互信</strong>、<strong>持續學習</strong>
-。當微光相加，便成為照亮人心的燈。</p>
 
-<p>#員工價值主張</p>
-    
-<p>#優化醫療工作環境</p>
- </div>
+    <div class="lead story-block">
+      <p>記錄小螺絲般的日常，支撐起醫院的大能量。</p>
+      <p>一所醫院的運轉，不只是手術燈下的專業；還有制度、教育、行政、資訊與後勤的默默把關。</p>
+      <p>我們走訪 11 位不同崗位的同仁，把他們的專注與信念化作文字：精準與耐心、溫情與承擔，彙成一種共同語言——<strong>彼此成就、彼此託付</strong>。</p>
+      <p>醫療之所以可靠，多成立於<strong>「看不見的地方」</strong>。</p>
+      <p>從手術房到病歷室，從教學單位到公共事務，同一條主線清晰可見：<strong>把流程做穩，把人放進制度裡</strong>。</p>
+      <p>有人用數據讓混亂變秩序；有人以傾聽修復誤解與信任；有人把技術寫成課程與指引，讓專業不只停在個人手中。遇到疫情，他們守住現場；面對數位轉型與 AI，他們不退場、願意學新工具。</p>
+      <p>這些選擇背後，有同一個信念：「<strong>員工好，病人就會好</strong>。」</p>
+      <p>它不是口號，而是每天被踐行的標尺。</p>
+      <p>真正讓醫院堅實的，不只有第一線；而是每一顆小螺絲彼此扣合，讓「奇美」被記住為可靠與溫暖。這份識別文化，可被讀成四個詞：<strong>尊重專業</strong>、<strong>誠信為本</strong>、<strong>團隊互信</strong>、<strong>持續學習</strong>。</p>
+      <p>當微光相加，便成為照亮人心的燈。</p>
+    </div>
+
+    <p><strong>#員工價值主張</strong></p>
+    <p><strong>#優化醫療工作環境</strong></p>
+  </div>
   
     <div class="bookmark-wrap">
       <div class="toolbar">
